@@ -1,8 +1,8 @@
 {
-  "homePage": "https://korol-wokolada.github.io/todo-App/public/",
   "name": "my-ts-app",
   "version": "0.1.0",
   "private": true,
+  "homePage": "https://korol-wokolada.github.io/my-ts-app/",
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.8.1",
@@ -38,7 +38,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
