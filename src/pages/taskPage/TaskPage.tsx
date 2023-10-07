@@ -1,12 +1,12 @@
 import React from "react";
 import "./taskPage.sass";
 
-import TaskKard from "../../components/taskKard/TaskKard";
 import { useAppDispatch, useAppSelector } from "../../store";
 
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import TaskColumn from "./taskColumn/TaskColumn";
 import { taskPageAction } from "../../store/taskPageReducer/action";
+import { Helmet } from "react-helmet";
 
 export default function TaskPage() {
   const dispatch = useAppDispatch();
@@ -31,16 +31,23 @@ export default function TaskPage() {
   }
 
   return (
-    <DragDropContext onDragEnd={handleDragEnd}>
-      <div className="task-page-wrapper">
-        <TaskColumn tasks={queueTasks} columnName="Queue" />
-        <TaskColumn
-          tasks={developmenTasks}
-          classStyle={`add-divider`}
-          columnName="Development"
-        />
-        <TaskColumn tasks={doneTasks} columnName="Done" />
-      </div>
-    </DragDropContext>
+    <div>
+      <Helmet>
+        <title>Task Page</title>
+        <meta name="description" content="Описание страницы" />
+      </Helmet>
+
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <div className="task-page-wrapper">
+          <TaskColumn tasks={queueTasks} columnName="Queue" />
+          <TaskColumn
+            tasks={developmenTasks}
+            classStyle={`add-divider`}
+            columnName="Development"
+          />
+          <TaskColumn tasks={doneTasks} columnName="Done" />
+        </div>
+      </DragDropContext>
+    </div>
   );
 }
