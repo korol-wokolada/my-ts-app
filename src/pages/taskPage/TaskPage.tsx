@@ -15,16 +15,19 @@ export default function TaskPage() {
   const tasks = useAppSelector((state) => state.taskPage.tasks);
 
   useEffect(() => {
+    return () => {
+      localStorage.setItem("myAppState", JSON.stringify(tasks));
+    };
+  }, [tasks]);
+
+  useEffect(() => {
     const storeState = localStorage.getItem("myAppState");
     if (storeState) {
       dispatch(
         taskPageAction.addTasksFromLocalStorageAction(JSON.parse(storeState))
       );
     }
-    return () => {
-      localStorage.setItem("myAppState", JSON.stringify(tasks));
-    };
-  }, []);
+  }, [dispatch]);
 
   const queueTasks = tasks.filter((task) => task.status === "Queue");
   const developmenTasks = tasks.filter((task) => task.status === "Development");
