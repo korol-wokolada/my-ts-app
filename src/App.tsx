@@ -11,13 +11,13 @@ import ProjectPage from "./pages/projectPage/ProjectPage";
 import { NavLink } from "react-router-dom";
 
 function App() {
-  const [page, setPage] = useState("/projectPage");
+  const [page, setPage] = useState("/");
   console.log(page);
 
   function changePage() {
-    if (page === "/projectPage") {
+    if (page === "/") {
       setPage("/taskPage");
-    } else setPage("/projectPage");
+    } else setPage("/");
   }
 
   return (
@@ -35,14 +35,14 @@ function App() {
           borderRadius={30}
           width={100 + "%"}
           justifyContent="space-around">
-          {page === "/projectPage" ? (
+          {page === "/" ? (
             <NavLink to={"/taskPage"}>
               <Text mr={10} onClick={changePage}>
                 Helper for Project
               </Text>
             </NavLink>
           ) : (
-            <NavLink to={"/projectPage"}>
+            <NavLink to={"/"}>
               <Text mr={10} onClick={changePage}>
                 Tasks
               </Text>
@@ -58,7 +58,7 @@ function App() {
         </Flex>
       </header>
       <Routes>
-        <Route path="/projectPage" element={<ProjectPage />} />
+        <Route path="/" element={<ProjectPage />} />
         <Route path="/taskPage" element={<TaskPage />} />
       </Routes>
     </div>
