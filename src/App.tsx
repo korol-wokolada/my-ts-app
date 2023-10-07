@@ -11,15 +11,6 @@ import ProjectPage from "./pages/projectPage/ProjectPage";
 import { NavLink } from "react-router-dom";
 
 function App() {
-  const [page, setPage] = useState("*");
-  console.log(page);
-
-  function changePage() {
-    if (page === "*") {
-      setPage("/taskPage");
-    } else setPage("*");
-  }
-
   return (
     <div className="App">
       <header className="app-Header">
@@ -35,26 +26,12 @@ function App() {
           borderRadius={30}
           width={100 + "%"}
           justifyContent="space-around">
-          {page === "*" ? (
-            <NavLink to={"/taskPage"}>
-              <Text mr={10} onClick={changePage}>
-                Helper for Project
-              </Text>
-            </NavLink>
-          ) : (
-            <NavLink to={"*"}>
-              <Text mr={10} onClick={changePage}>
-                Tasks
-              </Text>
-            </NavLink>
-          )}
-
-          {page === "/taskPage" && (
-            <>
-              <TaskSearch />
-              <ModalAddTask />
-            </>
-          )}
+          <NavLink to="*">
+            <Text fontSize={2 + "vw"}>Project</Text>
+          </NavLink>
+          <NavLink to="/taskPage">
+            <Text fontSize={2 + "vw"}>Task</Text>
+          </NavLink>
         </Flex>
       </header>
       <Routes>

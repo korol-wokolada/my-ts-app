@@ -87,7 +87,7 @@ export default function ModalAddTask() {
           backdropFilter="blur(10px) hue-rotate(90deg)"
         />
         <form onSubmit={handleSubmit(onSubmit)}>
-          <DrawerContent>
+          <DrawerContent overflowY="scroll">
             <DrawerCloseButton />
 
             <DrawerHeader borderBottomWidth="1px">

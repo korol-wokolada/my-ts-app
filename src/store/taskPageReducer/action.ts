@@ -9,6 +9,7 @@ export const DELETESUBTASK = "DELETE_SUBTASK";
 export const DELETETASK = "DELETE_TASK";
 export const CHANGETASKID = "CHANGE_TASK_ID";
 export const CHANGETASKCOLUMN = "CHANGE_TASK_COLUMN";
+export const ADDTASKSFROMLOCALSTORAGE = "ADD_TASK_FROM_LOCAL_STORAGE";
 
 export const taskPageAction = {
   addTaskAction(task: TaskType) {
@@ -82,6 +83,12 @@ export const taskPageAction = {
         newColumn,
         destinationIndex,
       },
+    } as const;
+  },
+  addTasksFromLocalStorageAction(tasks: TaskType[]) {
+    return {
+      type: ADDTASKSFROMLOCALSTORAGE,
+      payload: { tasks },
     } as const;
   },
 };

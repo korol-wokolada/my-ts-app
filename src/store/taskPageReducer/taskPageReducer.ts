@@ -8,6 +8,7 @@ import {
   DELETETASK,
   CHANGETASKID,
   CHANGETASKCOLUMN,
+  ADDTASKSFROMLOCALSTORAGE,
 } from "./action";
 import {
   TaskInitialStateType,
@@ -142,6 +143,13 @@ function taskReducer(
       return {
         ...state,
         tasks: [...state.tasks],
+      };
+    }
+
+    case ADDTASKSFROMLOCALSTORAGE: {
+      return {
+        ...state,
+        tasks: [...action.payload.tasks],
       };
     }
     default:
