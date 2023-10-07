@@ -35,8 +35,8 @@ function App() {
         </Flex>
       </header>
       <Routes>
-        <Route path="my-ts-app/*" element={<ProjectPage />} />
-        <Route path="my-ts-app/taskPage" element={<TaskPage />} />
+        <Route path="/*" element={<ProjectPage />} />
+        <Route path="/taskPage" element={<TaskPage />} />
       </Routes>
     </div>
   );
