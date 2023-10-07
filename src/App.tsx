@@ -26,17 +26,17 @@ function App() {
           borderRadius={30}
           width={100 + "%"}
           justifyContent="space-around">
-          <NavLink to="*">
+          <NavLink to="my-ts-app/*">
             <Text fontSize={2 + "vw"}>Project</Text>
           </NavLink>
-          <NavLink to="/taskPage">
+          <NavLink to="my-ts-app/taskPage">
             <Text fontSize={2 + "vw"}>Task</Text>
           </NavLink>
         </Flex>
       </header>
       <Routes>
-        <Route path="*" element={<ProjectPage />} />
-        <Route path="/taskPage" element={<TaskPage />} />
+        <Route path="my-ts-app/*" element={<ProjectPage />} />
+        <Route path="my-ts-app/taskPage" element={<TaskPage />} />
       </Routes>
     </div>
   );
